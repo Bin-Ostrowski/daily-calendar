@@ -1,55 +1,77 @@
-// // const moment = require('moment'); // download package.json 
+//list current date in jumbotron
+const currentDate = $("#currentDay").text(new Date()); // change this to show Ex: Thursday, September 10th. 
 
+//store tasks in an array so can save to local storage
+// const tasks = [nineAm, tenAm];
 
-// const nineAm = new Date('June, 4, 2022 09:00:00');
-// const today = new Date();
+//add function that creates (.time-block)
+const createTimeBlock = function(){
+    //includes three divs in a row - (.row)
+    var timeBlockLi = $("<li>").addClass("row");
+    //div 1(.hour) on left is  and states the hour - takes up 1/12 of row
+    var hourBlock = $("<p>").addClass("hour col");
+    //div 2 is a form input - takes up 10/12 of row in center
+    var taskBlock = $("<p>").addClass("textArea col-10");
+    //div 3 is on right - with save icon
+    var saveBlock = $("<div>").addClass("saveBtn col");
+    var saveIcon = $("<i>").addClass("fa-solid fa-floppy-disk");
+    //append i el to div
+    saveBlock.append(saveIcon);
+    //append p, span, and div element to li
+    timeBlockLi.append(hourBlock, taskBlock, saveBlock);
+    //append li to div class .container
+    $(".container").append(timeBlockLi);
+}
 
-// const tenAm = new Date(`${today.toDateString()} 10:00:00`);
+//create object holding timeblocks for each our of the work day with corresponding text in hour block.
+//add Id's
+const nineAm = function (){
+    createTimeBlock();
+    $(".hour").find(".hour").text("9am"); //can i use this to change text?
+    
+};
+nineAm();
+const tenAm = function (){
+    createTimeBlock();
+    $(".hour").text("10am");
+};
+tenAm();
 
-// const eleven =  new Date(`${today.toDateString()} 11:00:00`);
-// console.log(eleven.getHours());
+//if/else statment to turn blocks colors depending on in past, present, or eminent
 
+//create form input for tasks
+// $(".textArea").on("click", "p", function() {
+//     var text = $(this)
+//     .text()
+//     .trim();
+//     var textInput =$("<textarea>")
+//     .addClass("form-control")
+//     .val(text);
+//     $(this).replaceWith(textInput);
+//     textInput.trigger("focus");
+//   });
 
-// const nineAmEl = document.createElement('<div>');
-// nineAmEl.className = "container"
-// nineAmEl.style.width = '50px';
-// nineAmEl.style.height = '50px';
+//add click event to save button to save textInput to local storage
 
+// //loadTasks
+// var loadTasks = function() {
+//     tasks = JSON.parse(localStorage.getItem("tasks"));
+  
+//     // if nothing in localStorage, create a new object to track all task status arrays
+//     if (!tasks) {
+//       tasks = {
+//         nineAm: [],
+//         inProgress: [],
+//         inReview: [],
+//         done: []
+//       };
+//     }
+   
+// }  
 
+// //safe tasks
+// var saveTasks = function() {
+//     localStorage.setItem("tasks", JSON.stringify(tasks));
+//   };
 
-
-
-
-// //format page for each hour
-
-
-
-// //compage if this time is in the past
-// console.log(Date.now() > eleven);
-
-// console.log('this is moment: ', moment().format());
-const hourBlocks = document.querySelector(".container");
-
-const nineAmEl = document.createElement('div');
-    nineAmEl = new Date('June, 4, 2022 09:00:00');
-    nineAmEl.className = "nineAmEl"
-    nineAmEl.style.width = '50px';
-    nineAmEl.style.height = '50px';
-    hourBlocks.appendChild(nineAmEl);
-    console.log (nineAmEl);
-
-const today = new Date();
-console.log(Date.now());
-
-const tenAm = new Date(`${today.toDateString()} 10:00:00`);
-const elevenAm =  new Date(`${today.toDateString()} 11:00:00`);
-const twelvePm = new Date(`${today.toDateString()} 12:00:00`);
-console.log(elevenAm.getHours());
-
-
-const blockColor = function (){
-    if (nineAmEl > Date.now()) {
-    nineAmEl.style.backgroundColor = 'red';
-} else {
-    nineAmEl.style.backgroundColor = 'green';
-}}
+// loadTasks(); // this stays on bottom
