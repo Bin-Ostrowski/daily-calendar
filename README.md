@@ -2,7 +2,7 @@
 
 Created by: Robin Ostrowski
 
-On:6/8/2022
+On: 6/8/2022
 
 This webpage will generate a current daily planner for a 9am-5pm workday. It will allow user to see what the current day is, add comments to each hour block and then save that comment for later.
 

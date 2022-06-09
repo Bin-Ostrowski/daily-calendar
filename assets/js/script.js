@@ -1,14 +1,10 @@
 //list current date in jumbotron
 const currentDate = $("#currentDay").text(moment().format('dddd, MMMM Do')); // change this to show Ex: Thursday, September 10th. 
 
-
-
-
 //create timeblocks in html with Id's  "9,10,11 etc." to parent block. 
     //a div for hour, a textarea, and a button
     //add css and bootstap classes
     //add icon to button
-
 
 //load textarea from local storage
 $("#9 .description").val(localStorage.getItem('9'));
@@ -52,4 +48,4 @@ function start(){
 };
 
 //run function to style by time
-start()
+start();
